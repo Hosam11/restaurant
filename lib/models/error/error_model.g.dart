@@ -10,8 +10,8 @@ ErrorModel _$ErrorModelFromJson(Map<String, dynamic> json) {
   return ErrorModel(
     (json['name'] as List<dynamic>?)?.map((e) => e as String).toList(),
     (json['password'] as List<dynamic>?)?.map((e) => e as String).toList(),
-    mobile:
-        (json['mobile'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    json['error'] as String?,
+    (json['mobile'] as List<dynamic>?)?.map((e) => e as String).toList(),
   );
 }
 
@@ -20,4 +20,5 @@ Map<String, dynamic> _$ErrorModelToJson(ErrorModel instance) =>
       'mobile': instance.mobile,
       'name': instance.name,
       'password': instance.password,
+      'error': instance.error,
     };

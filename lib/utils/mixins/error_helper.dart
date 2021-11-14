@@ -18,6 +18,9 @@ mixin ErrorHelperMixin {
         errorMsgBuffer.write('$e\n');
       }
     }
+    if (errorModel.error != null) {
+      errorMsgBuffer.write('${errorModel.error}\n');
+    }
     return errorMsgBuffer.toString();
   }
 }

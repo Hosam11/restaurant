@@ -9,8 +9,6 @@ import 'package:restaurant/utils/mixins/error_helper.dart';
 import 'package:restaurant/utils/services/internet_service.dart';
 import 'package:restaurant/utils/services/storage_service.dart';
 
-const postMethod = 'POST';
-const getMethod = 'Get';
 const kApiUrl = 'https://aq-restaurant.herokuapp.com/api/'; // GET
 
 class ApiService extends GetxService with ErrorHelperMixin {
