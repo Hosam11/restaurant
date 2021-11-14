@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:restaurant/routes.dart';
@@ -9,12 +11,19 @@ class RestaurantApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const Text('hello'),
       debugShowCheckedModeBanner: false,
       getPages: routes,
-      // initialRoute: ,
+      initialRoute: loginScreen,
+      scrollBehavior: MyCustomScrollBehavior(),
     );
   }
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.unknown,
+      };
 }
