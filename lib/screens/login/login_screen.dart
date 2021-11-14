@@ -50,6 +50,8 @@ class LoginScreen extends StatelessWidget {
                           obscure: !loginController.visiblePsd,
                           validator: loginController.validatePassword,
                           textInputAction: TextInputAction.done,
+                          onFieldSubmitted: (v) =>
+                              loginController.loginPressed(),
                           controller: loginController.psdController,
                           suffixIcon: IconButton(
                             icon: Icon(

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:restaurant/api_services/auth_services/login_service.dart';
 import 'package:restaurant/constants/strings.dart';
 import 'package:restaurant/models/register_user/register_user.dart';
+import 'package:restaurant/routes.dart';
 import 'package:restaurant/utils/dialog/dialogs.dart';
 import 'package:restaurant/utils/mixins/validators.dart';
 import 'package:restaurant/utils/services/storage_service.dart';
@@ -57,8 +58,7 @@ class LoginController extends GetxController with ValidatorsMixin {
               accessProvider: user.accessProvider,
             ));
             stopLoading();
-            // todo for test
-            Get.defaultDialog(title: 'go home');
+            goHome();
           } else {
             stopLoading();
           }
@@ -71,4 +71,7 @@ class LoginController extends GetxController with ValidatorsMixin {
 
   Future<void> saveUserData(RegisterUser user) async =>
       await Get.find<StorageService>().setUserData(user);
+
+  // todo: make if offAndToNamed
+  void goHome() => Get.toNamed(homeScreen);
 }
