@@ -31,13 +31,6 @@ class LoginController extends GetxController with AuthHelperMixin {
     }
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    phoneController.dispose();
-    psdController.dispose();
-  }
-
   Future<void> loginPressed() async {
     final valid = formKey.currentState?.validate();
     if (valid != null) {
@@ -74,7 +67,14 @@ class LoginController extends GetxController with AuthHelperMixin {
     await Get.find<StorageService>().setUserData(user);
   }
 
-  void goHome() => Get.offAndToNamed(homeScreen);
+  void goHome() => Get.offAllNamed(homeScreen);
 
   void goSignup() => Get.toNamed(signupScreen);
+
+  @override
+  void dispose() {
+    phoneController.dispose();
+    psdController.dispose();
+    super.dispose();
+  }
 }

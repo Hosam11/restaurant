@@ -54,7 +54,7 @@ mixin AuthHelperMixin {
         Fimber.i('accessToken= ${accessToken.token}');
         final userData = await FacebookAuth.instance.getUserData();
         await saveData(userData);
-        Get.offAndToNamed(homeScreen);
+        Get.offAllNamed(homeScreen);
         break;
       case LoginStatus.cancelled:
       case LoginStatus.failed:

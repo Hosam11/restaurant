@@ -94,7 +94,7 @@ class SignupController extends GetxController with AuthHelperMixin {
     await Get.find<StorageService>().setUserData(user);
   }
 
-  void goHome() => Get.offAndToNamed(homeScreen);
+  Future<void> goHome() async => await Get.offAllNamed(homeScreen);
 
   @override
   void dispose() {
