@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
 import 'package:restaurant/constants/colors.dart';
 import 'package:restaurant/constants/dimensions.dart';
 
@@ -18,11 +17,12 @@ class CustomButton extends StatelessWidget {
   final Color? backgroundColor;
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return ElevatedButton(
       onPressed: onTap,
       style: TextButton.styleFrom(
         backgroundColor: backgroundColor ?? kOrangeColor,
-        minimumSize: Size(Get.size.width, 40),
+        minimumSize: Size(size.width, 40),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(defaultRadius),
         ),
