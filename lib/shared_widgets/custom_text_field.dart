@@ -18,6 +18,8 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController? controller;
   final bool obscure;
+  final Widget? suffixIcon;
+
   const CustomTextField({
     Key? key,
     this.onChange,
@@ -30,6 +32,7 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     this.controller,
     this.obscure = false,
+    this.suffixIcon,
   }) : super(key: key);
 
   @override
@@ -53,9 +56,11 @@ class CustomTextField extends StatelessWidget {
         focusedBorder: border,
         errorBorder: border,
         hintStyle: const TextStyle(color: kGreyColor),
+        suffixIcon: suffixIcon,
       ),
       onSaved: onSaved,
       validator: validator,
+      // autovalidateMode: AutovalidateMode.onUserInteraction,
       onFieldSubmitted: onFieldSubmitted,
     );
   }

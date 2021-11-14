@@ -13,6 +13,7 @@ class RestaurantApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: routes,
+      // todo: make it loginScreen
       initialRoute: loginScreen,
       scrollBehavior: MyCustomScrollBehavior(),
     );
