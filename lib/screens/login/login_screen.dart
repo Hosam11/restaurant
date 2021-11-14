@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant/constants/colors.dart';
 import 'package:restaurant/constants/strings.dart';
 import 'package:restaurant/constants/dimensions.dart';
-import 'package:restaurant/routes.dart';
 import 'package:restaurant/screens/login/login_controller.dart';
 import 'package:restaurant/screens/login/widgets/have_account_widget.dart';
 import 'package:restaurant/shared_widgets/auth_header_widget.dart';
@@ -79,7 +78,7 @@ class LoginScreen extends StatelessWidget {
                         onTap: loginController.loginPressed,
                       ),
                       const SizedBox(height: mediumPadding),
-                      HaveAccountWidget(onSignupTap: goSignup),
+                      HaveAccountWidget(onSignupTap: loginController.goSignup),
                       const SizedBox(height: largePadding),
                       const Text(
                         or,
@@ -88,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(height: mediumPadding),
                       CustomButton(
                         title: continueWithFB,
-                        onTap: () {},
+                        onTap: loginController.continueWithFacebook,
                         backgroundColor: kPurpleColor,
                         icon: const FaIcon(FontAwesomeIcons.facebookF),
                       ),
@@ -102,9 +101,5 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void goSignup() {
-    Get.toNamed(signupScreen);
   }
 }

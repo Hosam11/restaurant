@@ -6,10 +6,10 @@ import 'package:restaurant/constants/strings.dart';
 import 'package:restaurant/models/register_user/register_user.dart';
 import 'package:restaurant/routes.dart';
 import 'package:restaurant/utils/dialog/dialogs.dart';
-import 'package:restaurant/utils/mixins/validators.dart';
+import 'package:restaurant/utils/mixins/auth_helper_mixin.dart';
 import 'package:restaurant/utils/services/storage_service.dart';
 
-class LoginController extends GetxController with ValidatorsMixin {
+class LoginController extends GetxController with AuthHelperMixin {
   final loginService = LoginService();
   final formKey = GlobalKey<FormState>();
   final phoneController = TextEditingController();
@@ -69,9 +69,12 @@ class LoginController extends GetxController with ValidatorsMixin {
     }
   }
 
-  Future<void> saveUserData(RegisterUser user) async =>
-      await Get.find<StorageService>().setUserData(user);
+  Future<void> saveUserData(RegisterUser user) async {
+    await Get.find<StorageService>().setIsFb(false);
+    await Get.find<StorageService>().setUserData(user);
+  }
 
-  // todo: make if offAndToNamed
-  void goHome() => Get.toNamed(homeScreen);
+  void goHome() => Get.offAndToNamed(homeScreen);
+
+  void goSignup() => Get.toNamed(signupScreen);
 }

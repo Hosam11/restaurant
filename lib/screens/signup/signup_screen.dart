@@ -43,7 +43,7 @@ class SignupScreen extends StatelessWidget {
                       const SizedBox(height: mediumPadding),
                       // ------------- Phone
                       CustomTextField(
-                        hintText: phone,
+                        hintText: yourPhone,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.phone,
                         controller: signupController.phoneController,
@@ -111,7 +111,7 @@ class SignupScreen extends StatelessWidget {
                       // ------------- Facebook button
                       CustomButton(
                         title: continueWithFB,
-                        onTap: () {},
+                        onTap: signupController.continueWithFacebook,
                         backgroundColor: kPurpleColor,
                         icon: const FaIcon(FontAwesomeIcons.facebookF),
                       ),

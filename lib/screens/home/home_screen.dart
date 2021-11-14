@@ -9,6 +9,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userName = Get.find<StorageService>().isFb
+        ? Get.find<StorageService>().userName
+        : Get.find<StorageService>().userData?.name;
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -22,7 +25,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 8),
-            Text(Get.find<StorageService>().userData?.name ?? ' ',
+            Text(userName ?? ' ',
                 style: const TextStyle(fontWeight: FontWeight.bold)),
           ],
         ),

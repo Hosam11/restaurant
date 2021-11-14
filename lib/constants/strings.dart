@@ -1,3 +1,4 @@
+const appName = 'restaurant app';
 const signIn = 'Sign in';
 const userName = 'User name';
 const password = 'Password';
@@ -8,7 +9,8 @@ const doNotHaveAccount = 'Don\'t have an account?';
 const signUp = 'Sign up';
 const or = 'Or';
 const continueWithFB = 'Continue with facebook';
-const phone = 'Your phone';
+const yourPhone = 'Your phone';
+const phone = 'Phone';
 const welcome = 'Welcome';
 const requiredFiled = 'This field required';
 const incorrectUsernameLength = 'The name must be at least 3 characters';
