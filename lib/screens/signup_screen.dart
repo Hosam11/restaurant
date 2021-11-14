@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant/constants/colors.dart';
-import 'package:restaurant/constants/strings.dart';
 import 'package:restaurant/constants/dimensions.dart';
-import 'package:restaurant/routes.dart';
-import 'package:restaurant/screens/login/widgets/have_account_widget.dart';
+import 'package:restaurant/constants/strings.dart';
 import 'package:restaurant/shared_widgets/auth_header_widget.dart';
 import 'package:restaurant/shared_widgets/custom_button.dart';
 import 'package:restaurant/shared_widgets/custom_text_field.dart';
-import 'package:get/get.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +17,19 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const AuthHeaderWidget(title: signIn),
+            const AuthHeaderWidget(title: signUp, isBackButton: true),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: mediumPadding),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
-                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: mediumPadding),
                   CustomTextField(
                     hintText: userName,
+                    onSaved: (v) {},
+                  ),
+                  const SizedBox(height: mediumPadding),
+                  CustomTextField(
+                    hintText: phone,
                     onSaved: (v) {},
                   ),
                   const SizedBox(height: mediumPadding),
@@ -39,21 +39,11 @@ class LoginScreen extends StatelessWidget {
                     onSaved: (v) {},
                   ),
                   const SizedBox(height: mediumPadding),
-                  const Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      forgetPassword,
-                      style: TextStyle(color: kGreyColor),
-                    ),
-                  ),
-                  const SizedBox(height: mediumPadding),
                   CustomButton(
-                    title: login,
+                    title: signUp,
                     onTap: () {},
                   ),
                   const SizedBox(height: mediumPadding),
-                  HaveAccountWidget(onSignupTap: goSignup),
-                  const SizedBox(height: largePadding),
                   const Text(
                     or,
                     style: TextStyle(fontSize: 20),
@@ -73,9 +63,5 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void goSignup() {
-    Get.toNamed(signupScreen);
   }
 }

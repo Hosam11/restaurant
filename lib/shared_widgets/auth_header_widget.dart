@@ -1,8 +1,10 @@
+import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:restaurant/constants/assets.dart';
 import 'package:restaurant/constants/colors.dart';
 import 'package:get/get.dart';
 import 'package:restaurant/constants/dimensions.dart';
+import 'package:restaurant/utils/services/api_services.dart';
 
 class AuthHeaderWidget extends StatelessWidget {
   const AuthHeaderWidget({Key? key, required this.title, this.isBackButton})
@@ -16,6 +18,7 @@ class AuthHeaderWidget extends StatelessWidget {
     final logoDimension = isPortrait ? size.width * .6 : size.height * .6;
     final halfScreenSize = size.width / 2;
     final newCalc = (halfScreenSize - logoDimension / 2).round() + 0.0;
+    Fimber.i('top= ${context.mediaQueryPadding.top}');
     return Stack(
       children: [
         Image.asset(
@@ -25,7 +28,7 @@ class AuthHeaderWidget extends StatelessWidget {
           height: isPortrait ? size.width * .9 : size.height * .9,
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 28.0),
+          padding: EdgeInsets.only(top: context.mediaQueryPadding.top),
           child: Align(
             alignment: Alignment.topCenter,
             child: Container(
@@ -44,11 +47,12 @@ class AuthHeaderWidget extends StatelessWidget {
         ),
         if (isBackButton != null)
           Padding(
-            padding: const EdgeInsets.only(top: mediumPadding),
+            padding: EdgeInsets.only(top: context.mediaQueryPadding.top * .59),
             child: Align(
               alignment: Alignment.topLeft,
               child: IconButton(
-                icon: const Icon(Icons.arrow_back),
+                padding: EdgeInsets.zero,
+                icon: const Icon(Icons.arrow_back_ios, size: 15),
                 onPressed: () => Get.back(),
               ),
             ),
