@@ -19,7 +19,7 @@ dependencies:
   connectivity_plus: ^2.0.2
   json_serializable: ^4.1.4
   shared_preferences: ^2.0.8
-
+  font_awesome_flutter: ^9.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
