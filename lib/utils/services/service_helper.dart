@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
 import 'package:restaurant/utils/services/api_services.dart';
 
-String kApiUrl = 'https://aq-restaurant.herokuapp.com/api/'; // GET
+abstract class ServiceHelper {
+  final signupUrl = 'auth/register';
 
-final ApiService _api = Get.find<ApiService>();
-
-ApiService get api => _api;
+  final _api = Get.find<ApiService>();
+  ApiService get api => _api;
+}

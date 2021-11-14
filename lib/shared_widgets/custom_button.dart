@@ -34,12 +34,7 @@ class CustomButton extends StatelessWidget {
           if (icon != null)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: smallPadding),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  icon!,
-                ],
-              ),
+              child: icon!,
             ),
           Text(
             title,

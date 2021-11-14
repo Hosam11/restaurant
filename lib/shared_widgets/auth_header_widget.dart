@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:restaurant/constants/assets.dart';
 import 'package:restaurant/constants/colors.dart';
 import 'package:get/get.dart';
-import 'package:restaurant/constants/dimensions.dart';
-import 'package:restaurant/utils/services/api_services.dart';
 
 class AuthHeaderWidget extends StatelessWidget {
   const AuthHeaderWidget({Key? key, required this.title, this.isBackButton})
