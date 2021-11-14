@@ -31,7 +31,7 @@ class SignupController extends GetxController with ValidatorsMixin {
 
   // ------- validators
   String? validatePassword(String? psd) {
-    final isValid = validateEmptyField(phone);
+    final isValid = validateEmptyField(psd);
     if (isValid == null) {
       if (psd!.length < 8) {
         return incorrectPasswordLength;
@@ -42,7 +42,7 @@ class SignupController extends GetxController with ValidatorsMixin {
   }
 
   String? validatePsdConfirmPassword(String? confirmPsd) {
-    final isValid = validateEmptyField(phone);
+    final isValid = validateEmptyField(confirmPsd);
     if (isValid == null) {
       if (confirmPsd!.length < 8) {
         return incorrectPasswordLength;
@@ -94,10 +94,10 @@ class SignupController extends GetxController with ValidatorsMixin {
 
   @override
   void dispose() {
-    psdController.dispose();
-    confirmPsdController.dispose();
     userNameController.dispose();
     phoneController.dispose();
+    psdController.dispose();
+    confirmPsdController.dispose();
     super.dispose();
   }
 }

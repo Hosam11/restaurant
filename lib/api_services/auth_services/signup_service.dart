@@ -1,24 +1,17 @@
-import 'dart:convert';
-import 'dart:developer';
 import 'package:fimber/fimber.dart';
 import 'package:restaurant/models/register_user/register_user.dart';
 import 'package:restaurant/models/user_register_body.dart';
+import 'package:restaurant/utils/mixins/service_mixin.dart';
 import 'package:restaurant/utils/services/api_services.dart';
-import 'package:restaurant/utils/services/service_helper.dart';
 import 'package:dio/dio.dart' as dio;
 
-const _nameKey = 'name';
-const _mobileKey = 'mobile';
-const _passwordKey = 'password';
-const _passwordConfirmationKey = 'password_confirmation';
-
-class SignupService extends ServiceHelper {
+class SignupService with ServiceMixin {
   Future<RegisterUser?> registerCall(UserRegisterBody userBody) async {
     final body = dio.FormData.fromMap({
-      _nameKey: userBody.name,
-      _mobileKey: userBody.phone,
-      _passwordKey: userBody.password,
-      _passwordConfirmationKey: userBody.confirmPassword,
+      nameKey: userBody.name,
+      mobileKey: userBody.phone,
+      passwordKey: userBody.password,
+      passwordConfirmationKey: userBody.confirmPassword,
     });
 
     Fimber.i('userBody= ${body.fields}');
