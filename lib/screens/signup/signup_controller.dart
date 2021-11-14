@@ -5,11 +5,12 @@ import 'package:restaurant/api_services/auth_services/signup_service.dart';
 import 'package:restaurant/constants/strings.dart';
 import 'package:restaurant/models/register_user/register_user.dart';
 import 'package:restaurant/models/user_register_body.dart';
+import 'package:restaurant/routes.dart';
 import 'package:restaurant/utils/dialog/dialogs.dart';
-import 'package:restaurant/utils/mixins/validators.dart';
+import 'package:restaurant/utils/mixins/auth_helper_mixin.dart';
 import 'package:restaurant/utils/services/storage_service.dart';
 
-class SignupController extends GetxController with ValidatorsMixin {
+class SignupController extends GetxController with AuthHelperMixin {
   final signupService = SignupService();
   final formKey = GlobalKey<FormState>();
   final userNameController = TextEditingController();
@@ -76,8 +77,7 @@ class SignupController extends GetxController with ValidatorsMixin {
             Fimber.i('user not null');
             await saveUserData(user);
             stopLoading();
-            // todo for test
-            Get.defaultDialog(title: 'go home');
+            goHome();
           } else {
             stopLoading();
           }
@@ -89,8 +89,12 @@ class SignupController extends GetxController with ValidatorsMixin {
     }
   }
 
-  Future<void> saveUserData(RegisterUser user) async =>
-      await Get.find<StorageService>().setUserData(user);
+  Future<void> saveUserData(RegisterUser user) async {
+    await Get.find<StorageService>().setIsFb(false);
+    await Get.find<StorageService>().setUserData(user);
+  }
+
+  void goHome() => Get.offAndToNamed(homeScreen);
 
   @override
   void dispose() {

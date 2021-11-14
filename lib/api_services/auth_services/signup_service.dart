@@ -2,7 +2,6 @@ import 'package:fimber/fimber.dart';
 import 'package:restaurant/models/register_user/register_user.dart';
 import 'package:restaurant/models/user_register_body.dart';
 import 'package:restaurant/utils/mixins/service_mixin.dart';
-import 'package:restaurant/utils/services/api_services.dart';
 import 'package:dio/dio.dart' as dio;
 
 class SignupService with ServiceMixin {

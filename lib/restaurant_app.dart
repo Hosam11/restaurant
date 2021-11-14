@@ -2,18 +2,18 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:restaurant/constants/strings.dart';
 import 'package:restaurant/routes.dart';
 
 class RestaurantApp extends StatelessWidget {
   const RestaurantApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: routes,
-      // todo: make it loginScreen
+      title: appName,
       initialRoute: loginScreen,
       scrollBehavior: MyCustomScrollBehavior(),
     );
